@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  ad-insights:
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./src:/app/src:ro
+    restart: unless-stopped
+    
+  # Opcional: Adicione um serviço de banco de dados se necessário
+  # postgres:
+  #   image: postgres:15
+  #   environment:
+  #     POSTGRES_DB: ad_insights
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+# volumes:
+#   postgres_data:
+

@@ -1,73 +1,129 @@
-# Welcome to your Lovable project
+# ad-insights
 
-## Project info
+Este projeto é um painel de insights de anúncios desenvolvido com React, TypeScript, Vite e Shadcn UI. Ele utiliza Bun para gerenciamento de pacotes e execução de scripts, e pode ser conteinerizado com Docker.
 
-**URL**: https://lovable.dev/projects/c741860f-0c97-494b-9d7d-0b5205e25a96
+## Tecnologias Utilizadas
 
-## How can I edit this code?
+*   **Framework Frontend:** React
+*   **Linguagem:** TypeScript
+*   **Build Tool:** Vite
+*   **Componentes UI:** Shadcn UI
+*   **Estilização:** Tailwind CSS
+*   **Gerenciador de Pacotes/Runtime:** Bun
+*   **Containerização:** Docker
+*   **Autenticação/Banco de Dados (sugerido pela estrutura):** Supabase
 
-There are several ways of editing your application.
+## Estrutura do Projeto
 
-**Use Lovable**
+O projeto segue uma estrutura padrão de aplicações React com Vite, com algumas adições:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c741860f-0c97-494b-9d7d-0b5205e25a96) and start prompting.
+*   `public/`: Arquivos estáticos.
+*   `src/`: Código fonte da aplicação.
+*   `supabase/`: Diretório sugerido para configurações e scripts relacionados ao Supabase.
+*   `Dockerfile`: Contém as instruções para construir a imagem Docker da aplicação.
+*   `package.json`: Define as dependências do projeto e scripts de execução.
+*   `bun.lockb`: Arquivo de lock do Bun, garantindo instalações reprodutíveis.
+*   `components.json`: Configurações para Shadcn UI.
+*   `index.html`: Ponto de entrada da aplicação.
+*   `postcss.config.js`, `tailwind.config.ts`: Configurações para PostCSS e Tailwind CSS.
+*   `tsconfig.json`, `tsconfig.app.json`, `tsconfig.node.json`: Arquivos de configuração do TypeScript.
+*   `vite.config.ts`: Configuração do Vite.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Como Rodar o Projeto
 
-**Use your preferred IDE**
+Para rodar este projeto, você precisará ter o Node.js (com npm ou yarn) ou o Bun instalados em sua máquina. Recomenda-se o uso do Bun, conforme indicado no `Dockerfile` e `package.json`.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Pré-requisitos
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+*   [Bun](https://bun.sh/docs/installation) (recomendado) ou [Node.js](https://nodejs.org/en/download/) (com npm ou yarn)
+*   [Docker](https://docs.docker.com/get-docker/) (opcional, para conteinerização)
 
-Follow these steps:
+### Usando Bun (Recomendado)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1.  **Clone o repositório:**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+    ```bash
+    git clone https://github.com/arkbsb/ad-insights.git
+    cd ad-insights
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2.  **Instale as dependências:**
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+    ```bash
+    bun install
+    ```
+
+3.  **Inicie o servidor de desenvolvimento:**
+
+    ```bash
+    bun run dev
+    ```
+
+    A aplicação estará disponível em `http://localhost:5173` (ou outra porta, se configurado).
+
+### Usando npm/Yarn (Alternativo)
+
+1.  **Clone o repositório:**
+
+    ```bash
+    git clone https://github.com/arkbsb/ad-insights.git
+    cd ad-insights
+    ```
+
+2.  **Instale as dependências:**
+
+    ```bash
+    npm install # ou yarn install
+    ```
+
+3.  **Inicie o servidor de desenvolvimento:**
+
+    ```bash
+    npm run dev # ou yarn dev
+    ```
+
+    A aplicação estará disponível em `http://localhost:5173` (ou outra porta, se configurado).
+
+### Usando Docker
+
+1.  **Clone o repositório:**
+
+    ```bash
+    git clone https://github.com/arkbsb/ad-insights.git
+    cd ad-insights
+    ```
+
+2.  **Construa a imagem Docker:**
+
+    ```bash
+    docker build -t ad-insights .
+    ```
+
+3.  **Execute o container Docker:**
+
+    ```bash
+    docker run -p 80:80 ad-insights
+    ```
+
+    A aplicação estará disponível em `http://localhost`.
+
+## Variáveis de Ambiente
+
+Se o projeto utilizar variáveis de ambiente (por exemplo, para chaves de API do Supabase), crie um arquivo `.env` na raiz do projeto com o seguinte formato:
+
+```
+# Exemplo de variáveis de ambiente para Supabase
+VITE_SUPABASE_URL=sua_url_supabase
+VITE_SUPABASE_ANON_KEY=sua_chave_anon_supabase
 ```
 
-**Edit a file directly in GitHub**
+Consulte o código fonte (especialmente em `src/`) para identificar as variáveis de ambiente específicas que o projeto pode exigir.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Contribuição
 
-**Use GitHub Codespaces**
+Sinta-se à vontade para contribuir com este projeto. Por favor, siga as diretrizes de contribuição (a serem definidas).
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Licença
 
-## What technologies are used for this project?
+Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes. (Se aplicável, crie o arquivo LICENSE)
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/c741860f-0c97-494b-9d7d-0b5205e25a96) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
